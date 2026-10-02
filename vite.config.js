@@ -3,9 +3,15 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+
   test: {
     environment: 'jsdom',
     setupFiles: './src/setupTests.js',
     globals: true,
+
+    // Vitest testa apenas ficheiros dentro de src/
+    include: [
+      'src/**/*.{test,spec}.{js,jsx,ts,tsx}',
+    ],
   },
 })
